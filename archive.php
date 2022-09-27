@@ -1,39 +1,37 @@
-<?php get_header() ?>
-<!-- Main -->
-<section id="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 col-12-medium">
-                <?php
-                    if(have_posts()) {
-                        while(have_posts()) {
-                            the_post(); ?>
-                            <div class="col-6 col-12-small">
-                                <section class="box">
-                                    <a href="<?php the_permalink() ?>" class="image featured">
-                                        <?php the_post_thumbnail('home-featured') ?>
-                                    </a>
-                                    <header>
-                                        <h3><?php the_title() ?></h3>
-                                        <p>Posted on <?php the_date() ?> at <?php the_time() ?></p>
-                                    </header>
-                                    <?php the_excerpt() ?>
-                                    <footer>
-                                        <ul class="actions">
-                                            <li><a href="<?php the_permalink() ?>" class="button icon solid fa-file-alt">Continue Reading</a></li>
-                                            <li><a href="<?php comments_link() ?>" class="button alt icon solid fa-comment"><?php echo get_comments_number( ) ?> comments</a></li>
-                                        </ul>
-                                    </footer>
-                                </section>
-                            </div>
-                    <?php }
-                    }
-                ?>
-                
+<?php
+/**
+ * The template for displaying archive pages
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package WordPress
+ * @subpackage Twenty_Twenty_One
+ * @since Twenty Twenty-One 1.0
+ */
 
-            </div>
-            <?php get_sidebar() ?>
-        </div>
-    </div>
-</section>
-<?php get_footer() ?>
+get_header();
+
+$description = get_the_archive_description();
+?>
+
+<?php if ( have_posts() ) : ?>
+
+	<header class="page-header alignwide">
+		<?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?>
+		<?php if ( $description ) : ?>
+			<div class="archive-description"><?php echo wp_kses_post( wpautop( $description ) ); ?></div>
+		<?php endif; ?>
+	</header><!-- .page-header -->
+
+	<?php while ( have_posts() ) : ?>
+		<?php the_post(); ?>
+		<?php get_template_part( 'template-parts/content/content', get_theme_mod( 'display_excerpt_or_full_post', 'excerpt' ) ); ?>
+	<?php endwhile; ?>
+
+	<?php twenty_twenty_one_the_posts_navigation(); ?>
+
+<?php else : ?>
+	<?php get_template_part( 'template-parts/content/content-none' ); ?>
+<?php endif; ?>
+
+<?php get_footer(); ?>
