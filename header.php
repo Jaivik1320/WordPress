@@ -1,32 +1,57 @@
-<?php
-/**
- * The header.
- *
- * This is the template that displays all of the <head> section and everything up until main.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
- */
-
-?>
-<!doctype html>
-<html <?php language_attributes(); ?> <?php twentytwentyone_the_html_classes(); ?>>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<?php wp_head(); ?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>White Tiger Express | Home</title>
+
+<link href="<?php echo get_template_directory_uri(); ?>/css/style.css" rel="stylesheet" type="text/css" />
+<style>
+   .body{
+	width:100%;
+	margin:0;
+	font-size:24px;
+	line-height:20px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+</style>
+
+
 </head>
 
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'twentytwentyone' ); ?></a>
+<body>
+	
+<div class="main-content">
+    
+    	<div id="top-left">
+    	 <a href="#"> <?php echo get_theme_mod('demo_setting_id'); ?></a>
 
-	<?php get_template_part( 'template-parts/header/site-header' ); ?>
+        </div><!--ends top-left-->
+    
+    
+        <div id="top-right">
+        
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="22%" rowspan="2"><img src="<?php echo get_template_directory_uri(); ?>/images/mobile.png" width="29" height="29" /></td>
+            <td width="78%" valign="bottom">Toll Free</td>
+          </tr>
+          <tr>
+            <td valign="top">000 - 0000 - 000</td>
+          </tr>
+          </table>
 
-	<div id="content" class="site-content">
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main">
+        </div><!--ends top right-->
+        </div><!--ends main-content-->
+        
+        
+        <div class="clear"></div>        
+<div id="nav-bg">
+  <div class="main-content">
+  <?php wp_nav_menu(array('
+               theme_location'=>'primary-menu'
+              )); ?>
+            </div><!--ends main content-->
+</div><!--ends nav bg-->
+      
