@@ -1,81 +1,39 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
- */
+<div id="footer-container">
+         	<div class="main-content">
+            
+  				<a href="#"><div id="contact-us-btn"></div> </a>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="77%" rowspan="2"><p>© 1999-2014 <span style="color:#fff">White Tiger Express</span> Company | All rights reserved</p></td>
+                    <td width="4%" rowspan="2"><img src="<?php echo get_template_directory_uri(); ?>/images/footer-contact-mobile.png"/></td>
+                    <td width="19%" valign="bottom"><span style="color:#fff; padding-top:5px">Toll Free</span> </td>
+                  </tr>
+                  <tr>
+                    <td valign="top"><span style="color:#fff">000 - 0000 - 000</span></td>
+                  </tr>
+              </table>
+             
 
-?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
-	</div><!-- #content -->
+              </div>
+              <div class="col-4 col-6-medium col-12-small">
+              <?php dynamic_sidebar('sidebar'); ?>
+              
+              <ul class="divided">
+              <li><a href="#">I am Jaivik</a></li>
+              <li><a href="#">I am Parekh</a></li>
+              <li><a href="#">I am Software Developer</a></li>
+              </ul>
+              </div>
 
-	<?php get_template_part( 'template-parts/footer/footer-widgets' ); ?>
+              
+              <?php dynamic_sidebar('Footerwidget1'); 
+                 
+                 ?>
+                 <?php dynamic_sidebar('Footerwidget2'); 
+                 
+                 ?>
 
-	<footer id="colophon" class="site-footer">
-
-		<?php if ( has_nav_menu( 'footer' ) ) : ?>
-			<nav aria-label="<?php esc_attr_e( 'Secondary menu', 'twentytwentyone' ); ?>" class="footer-navigation">
-				<ul class="footer-navigation-wrapper">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer',
-							'items_wrap'     => '%3$s',
-							'container'      => false,
-							'depth'          => 1,
-							'link_before'    => '<span>',
-							'link_after'     => '</span>',
-							'fallback_cb'    => false,
-						)
-					);
-					?>
-				</ul><!-- .footer-navigation-wrapper -->
-			</nav><!-- .footer-navigation -->
-		<?php endif; ?>
-		<div class="site-info">
-			<div class="site-name">
-				<?php if ( has_custom_logo() ) : ?>
-					<div class="site-logo"><?php the_custom_logo(); ?></div>
-				<?php else : ?>
-					<?php if ( get_bloginfo( 'name' ) && get_theme_mod( 'display_title_and_tagline', true ) ) : ?>
-						<?php if ( is_front_page() && ! is_paged() ) : ?>
-							<?php bloginfo( 'name' ); ?>
-						<?php else : ?>
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-						<?php endif; ?>
-					<?php endif; ?>
-				<?php endif; ?>
-			</div><!-- .site-name -->
-
-			<?php
-			if ( function_exists( 'the_privacy_policy_link' ) ) {
-				the_privacy_policy_link( '<div class="privacy-policy">', '</div>' );
-			}
-			?>
-
-			<div class="powered-by">
-				<?php
-				printf(
-					/* translators: %s: WordPress. */
-					esc_html__( 'Proudly powered by %s.', 'twentytwentyone' ),
-					'<a href="' . esc_url( __( 'https://wordpress.org/', 'twentytwentyone' ) ) . '">WordPress</a>'
-				);
-				?>
-			</div><!-- .powered-by -->
-
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-
-</div><!-- #page -->
-
-<?php wp_footer(); ?>
-
+            </div><!--ends main content-->
+</div>
 </body>
 </html>
